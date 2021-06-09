@@ -35,7 +35,7 @@ class AssessmentApplicationTests {
     private UserRequest userRequest;
 
 
-    Gson gson = new Gson();
+    protected Gson gson = new Gson();
 
 
     public String BASE_URL = "http://localhost:8085/api";
