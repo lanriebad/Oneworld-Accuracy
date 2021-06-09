@@ -1,6 +1,5 @@
 package com.test.assessment.dto;
 
-import com.test.assessment.model.Role;
 import lombok.Data;
 
 import java.io.Serializable;

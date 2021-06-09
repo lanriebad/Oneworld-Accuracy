@@ -5,7 +5,6 @@ import com.test.assessment.dto.UserInfoMailLogResponse;
 import com.test.assessment.dto.UserResponse;
 import com.test.assessment.utils.UserUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;

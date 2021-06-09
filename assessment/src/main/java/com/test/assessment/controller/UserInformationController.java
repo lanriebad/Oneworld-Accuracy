@@ -2,7 +2,6 @@ package com.test.assessment.controller;
 
 
 import com.test.assessment.configuration.ApplicationUrl;
-import com.test.assessment.dao.UserInformationDAO;
 import com.test.assessment.dto.UserRequest;
 import com.test.assessment.model.User;
 import com.test.assessment.service.UserInformationService;

@@ -12,14 +12,6 @@ import java.util.Date;
 @Component
 public class UserUtils {
 
-
-    public String getLocalDate() {
-        String currentDate = LocalDate.now().toString();
-        String formatDate = currentDate.replaceAll("-", "");
-        return formatDate;
-
-    }
-
     public String dateToString() {
         Date date = Calendar.getInstance().getTime();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");

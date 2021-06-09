@@ -1,34 +1,19 @@
 package com.test.assessment;
 
 import com.google.gson.Gson;
-import com.test.assessment.controller.UserInformationController;
 import com.test.assessment.dto.UserRequest;
 import com.test.assessment.model.User;
-import com.test.assessment.service.UserInformationServiceImpl;
 import com.test.assessment.utils.DefaultServiceResponse;
-import com.test.assessment.utils.ServiceResponse;
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.jupiter.api.BeforeEach;
+
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
-import org.slf4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Bean;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
+
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.*;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.client.RestTemplate;
 
 import java.net.URI;
@@ -36,9 +21,7 @@ import java.net.URISyntaxException;
 import java.util.*;
 
 import static org.hibernate.tool.schema.SchemaToolingLogging.LOGGER;
-import static org.mockito.Matchers.any;
-import static org.mockito.Mockito.doReturn;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 
 @RunWith(SpringJUnit4ClassRunner.class)
 class AssessmentApplicationTests {
