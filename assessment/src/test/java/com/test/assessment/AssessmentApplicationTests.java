@@ -58,6 +58,10 @@ class AssessmentApplicationTests {
         userRequest.setTitle("assessment");
         LOGGER.info("Payload>>>>>" + userRequest);
         RequestEntity<UserRequest> entity = new RequestEntity<>(userRequest, headers, HttpMethod.POST, uri);
+        extractedTestResult(entity);
+    }
+
+    private void extractedTestResult(RequestEntity<UserRequest> entity) {
         ResponseEntity<String> response = restTemplate.exchange(entity, String.class);
         System.out.println("RawResult>>>>>" + response);
         Assert.assertEquals(response.getStatusCode(), HttpStatus.OK);
@@ -68,8 +72,6 @@ class AssessmentApplicationTests {
         LOGGER.info("Result>>>>>" + userResponse);
         Assert.assertEquals("Operation Successful", userResponse.getResponseMsg());
     }
-
-
 
 
     @Test
@@ -79,15 +81,7 @@ class AssessmentApplicationTests {
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
         Pageable pageable = PageRequest.of(1, 2);
         RequestEntity entity = new RequestEntity<>(pageable, headers, HttpMethod.GET, uri);
-        ResponseEntity<String> response = restTemplate.exchange(entity, String.class);
-        System.out.println("RawResult>>>>>" + response);
-        Assert.assertEquals(response.getStatusCode(), HttpStatus.OK);
-        Assert.assertNotNull(response.getBody());
-        String responseData = response.getBody();
-        LOGGER.info("ResponseData>>>>>" + responseData);
-        DefaultServiceResponse userResponse = gson.fromJson(responseData, DefaultServiceResponse.class);
-        LOGGER.info("Result>>>>>" + userResponse);
-        Assert.assertEquals("Operation Successful", userResponse.getResponseMsg());
+        extractedTestResult(entity);
 
     }
 
@@ -97,15 +91,7 @@ class AssessmentApplicationTests {
         HttpHeaders headers = new HttpHeaders();
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
         RequestEntity entity = new RequestEntity<>(headers, HttpMethod.DELETE, uri);
-        ResponseEntity<String> response = restTemplate.exchange(entity, String.class);
-        System.out.println("RawResult>>>>>" + response);
-        Assert.assertEquals(response.getStatusCode(), HttpStatus.OK);
-        Assert.assertNotNull(response.getBody());
-        String responseData = response.getBody();
-        LOGGER.info("ResponseData>>>>>" + responseData);
-        DefaultServiceResponse userResponse = gson.fromJson(responseData, DefaultServiceResponse.class);
-        LOGGER.info("Result>>>>>" + userResponse);
-        Assert.assertEquals("Operation Successful", userResponse.getResponseMsg());
+        extractedTestResult(entity);
 
     }
 
@@ -119,15 +105,7 @@ class AssessmentApplicationTests {
         userRequest.setEmail("lol144441@lol.com");
         userRequest.setPassword("test");
         RequestEntity entity = new RequestEntity<>(userRequest,headers, HttpMethod.PUT, uri);
-        ResponseEntity<String> response = restTemplate.exchange(entity, String.class);
-        System.out.println("RawResult>>>>>" + response);
-        Assert.assertEquals(response.getStatusCode(), HttpStatus.OK);
-        Assert.assertNotNull(response.getBody());
-        String responseData = response.getBody();
-        LOGGER.info("ResponseData>>>>>" + responseData);
-        DefaultServiceResponse userResponse = gson.fromJson(responseData, DefaultServiceResponse.class);
-        LOGGER.info("Result>>>>>" + userResponse);
-        Assert.assertEquals("Operation Successful", userResponse.getResponseMsg());
+        extractedTestResult(entity);
 
     }
 
@@ -137,15 +115,7 @@ class AssessmentApplicationTests {
         HttpHeaders headers = new HttpHeaders();
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
         RequestEntity entity = new RequestEntity<>(headers, HttpMethod.GET, uri);
-        ResponseEntity<String> response = restTemplate.exchange(entity, String.class);
-        System.out.println("RawResult>>>>>" + response);
-        Assert.assertEquals(response.getStatusCode(), HttpStatus.OK);
-        Assert.assertNotNull(response.getBody());
-        String responseData = response.getBody();
-        LOGGER.info("ResponseData>>>>>" + responseData);
-        DefaultServiceResponse userResponse = gson.fromJson(responseData, DefaultServiceResponse.class);
-        LOGGER.info("Result>>>>>" + userResponse);
-        Assert.assertEquals("Operation Successful", userResponse.getResponseMsg());
+        extractedTestResult(entity);
 
     }
 
