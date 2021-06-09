@@ -6,7 +6,6 @@ import com.test.assessment.dto.UserResponse;
 import com.test.assessment.model.UserInfoMailLogs;
 import com.test.assessment.repository.UserInfoMailLogsRepository;
 import com.test.assessment.service.EmailService;
-import com.test.assessment.utils.UserUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,9 +28,6 @@ public class OnboardingNotification {
 
     @Autowired
     private EmailService emailService;
-
-    @Autowired
-    private UserUtils userUtils;
 
     @Autowired
     private UserInfoMailLogsRepository userInfoMailLogsRepository;
