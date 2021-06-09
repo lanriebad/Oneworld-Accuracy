@@ -22,7 +22,7 @@ import java.util.Optional;
 public class UserInformationController {
 
     @Autowired
-    UserInformationService userInformationService;
+    private UserInformationService userInformationService;
 
     @org.springframework.beans.factory.annotation.Value("${assessment.test.for.verification.url:http://localhost:8085/api/verify?email=%s}")
     String verificationUrl;

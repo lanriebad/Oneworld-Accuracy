@@ -13,7 +13,7 @@ import java.util.Optional;
 public class Seed {
 
     @Autowired
-    RoleRepository roleRepository;
+    private RoleRepository roleRepository;
 
     @PostConstruct
     public void Seeder(){

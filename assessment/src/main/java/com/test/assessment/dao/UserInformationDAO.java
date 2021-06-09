@@ -18,7 +18,7 @@ import java.util.List;
 public class UserInformationDAO {
 
     @Autowired
-    JdbcTemplate jdbcTemplate;
+    protected JdbcTemplate jdbcTemplate;
 
     @org.springframework.beans.factory.annotation.Value("${assessment.test.for.status.deactivated:DEACTIVATED}")
     String statusDeActivated;
@@ -28,7 +28,7 @@ public class UserInformationDAO {
     String statusVerified;
 
     @Autowired
-    UserUtils userUtils;
+    private UserUtils userUtils;
 
 
     public void deactivateUserById(Long id) {

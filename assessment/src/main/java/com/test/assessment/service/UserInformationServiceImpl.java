@@ -104,7 +104,7 @@ public class UserInformationServiceImpl implements UserInformationService {
         } else {
             strRoles.forEach(role -> {
                 System.out.println(role);
-                if ("ADMIN".equals(role.toUpperCase())) {
+                if ("ADMIN".equalsIgnoreCase(role.toUpperCase())) {
                     Role adminRole = roleRepository.findRoleByName(RoleName.ROLE_ADMIN).
                     orElseThrow(() -> new
                                     RuntimeException("Error: Role is not found."));
