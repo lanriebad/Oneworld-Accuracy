@@ -59,33 +59,12 @@ class AssessmentApplicationTests {
 
     private UserRequest userRequest;
 
-    private DefaultServiceResponse response;
-
 
     Gson gson = new Gson();
 
-    @Autowired
-    private MockMvc mvc;
 
     public String BASE_URL = "http://localhost:8085/api";
 
-
-
-
-    @Before
-    public void setUp() {
-        userRequest = new UserRequest();
-        userRequest.setDateregistered(new Date());
-        userRequest.setFirstname("test");
-        userRequest.setLastname("test");
-        userRequest.setEmail("lol11@lol.com");
-        userRequest.setPassword("test");
-        userRequest.setMobile("0802983733");
-        userRequest.setVerified("N");
-        userRequest.setRoles(Collections.singleton("user"));
-        userRequest.setTitle("assessment");
-        MockitoAnnotations.initMocks(this);
-    }
 
 
     @Test
@@ -97,7 +76,7 @@ class AssessmentApplicationTests {
         userRequest.setDateregistered(new Date());
         userRequest.setFirstname("test");
         userRequest.setLastname("test");
-        userRequest.setEmail("lol11@lol.com");
+        userRequest.setEmail("lol144441@lol.com");
         userRequest.setPassword("test");
         userRequest.setMobile("0802983733");
         userRequest.setVerified("N");
@@ -141,11 +120,59 @@ class AssessmentApplicationTests {
 
     @Test
     public void deactivateUser() throws URISyntaxException {
-        URI uri = new URI(BASE_URL+"/users");
+        URI uri = new URI(BASE_URL+"/user/id/98");
         HttpHeaders headers = new HttpHeaders();
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-        doReturn(userRequest).when(userInformationService).findIfUserExistsByEmail(userRequest.getEmail());
-        Assert.assertEquals(ServiceResponse.ResponseCode.SUCCESS.getCode(),"00");
+        RequestEntity entity = new RequestEntity<>(headers, HttpMethod.DELETE, uri);
+        ResponseEntity<String> response = restTemplate.exchange(entity, String.class);
+        System.out.println("RawResult>>>>>" + response);
+        Assert.assertEquals(response.getStatusCode(), HttpStatus.OK);
+        Assert.assertNotNull(response.getBody());
+        String responseData = response.getBody();
+        LOGGER.info("ResponseData>>>>>" + responseData);
+        DefaultServiceResponse userResponse = gson.fromJson(responseData, DefaultServiceResponse.class);
+        LOGGER.info("Result>>>>>" + userResponse);
+        Assert.assertEquals("Operation Successful", userResponse.getResponseMsg());
+
+    }
+
+    @Test
+    public void updateUser() throws URISyntaxException {
+        URI uri = new URI(BASE_URL+"/user/id/98");
+        HttpHeaders headers = new HttpHeaders();
+        headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+        userRequest.setFirstname("test");
+        userRequest.setLastname("test");
+        userRequest.setEmail("lol144441@lol.com");
+        userRequest.setPassword("test");
+        RequestEntity entity = new RequestEntity<>(userRequest,headers, HttpMethod.PUT, uri);
+        ResponseEntity<String> response = restTemplate.exchange(entity, String.class);
+        System.out.println("RawResult>>>>>" + response);
+        Assert.assertEquals(response.getStatusCode(), HttpStatus.OK);
+        Assert.assertNotNull(response.getBody());
+        String responseData = response.getBody();
+        LOGGER.info("ResponseData>>>>>" + responseData);
+        DefaultServiceResponse userResponse = gson.fromJson(responseData, DefaultServiceResponse.class);
+        LOGGER.info("Result>>>>>" + userResponse);
+        Assert.assertEquals("Operation Successful", userResponse.getResponseMsg());
+
+    }
+
+    @Test
+    public void verifyUser() throws URISyntaxException {
+        URI uri = new URI(BASE_URL+"/verify?email=lol144441@lol.com";
+        HttpHeaders headers = new HttpHeaders();
+        headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+        RequestEntity entity = new RequestEntity<>(headers, HttpMethod.GET, uri);
+        ResponseEntity<String> response = restTemplate.exchange(entity, String.class);
+        System.out.println("RawResult>>>>>" + response);
+        Assert.assertEquals(response.getStatusCode(), HttpStatus.OK);
+        Assert.assertNotNull(response.getBody());
+        String responseData = response.getBody();
+        LOGGER.info("ResponseData>>>>>" + responseData);
+        DefaultServiceResponse userResponse = gson.fromJson(responseData, DefaultServiceResponse.class);
+        LOGGER.info("Result>>>>>" + userResponse);
+        Assert.assertEquals("Operation Successful", userResponse.getResponseMsg());
 
     }
 
