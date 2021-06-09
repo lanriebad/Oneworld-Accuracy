@@ -21,19 +21,19 @@ REST API using spring boot is as follows:
 
 
 
-## Configuration
+#Configuration
 1.Seed data is provided prior when deployment is ongoing either to create a Role as an Admin or User.
 2.Swagger is provded for this project .( http://localhost:8085/swagger-ui/#/ )
 
 
 
-## Methods
-#### Create User
+#Methods
+#Create User
 1.A user is created
 2.A POST RequestMethod is used with the payload below
 3.using the url :  localhost:8085/api/user
 
- ```payload
+payload
         {
  
   "email": "string",
@@ -45,18 +45,17 @@ REST API using spring boot is as follows:
   "status": "string",
   "title": "string",
 }
- ```
 
 
 
-## Get Users
+#Get Users
 1.This Gets the list of all users by pagination
 2.A GET RequestMethod is used
 3.using the url :  localhost:8085/api/users?limit=1
 
 
 
-## Verify Users
+#Verify Users
 1.Upon Successful signup or creation of user, a response is returned which contains the verification url
 2.A GET RequestMethod is used 
 3.using the url :  localhost:8085/api/verify?email=test@yahoo.com
@@ -66,7 +65,7 @@ REST API using spring boot is as follows:
 
 
 
-## Deactivate Users
+#Deactivate Users
 1.Users can be deactivated by their Id.
 2.A DELETE RequestMethod is used 
 3.Using the url :  localhost:8085/api/user/{id}
@@ -75,12 +74,12 @@ REST API using spring boot is as follows:
 
 
 
-## Update User
+#Update User
 1.An user can update is data 
 2.A PUT RequestMethod is used with the payload below
 3.using the url :  localhost:8085/api/user/{id}
 
- ```payload
+payload
         {
  
   "firstname": "string",
