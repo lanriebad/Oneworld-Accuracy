@@ -25,16 +25,16 @@ public class OnboardingNotification {
     final static Logger LOG = LoggerFactory.getLogger(OnboardingNotification.class);
 
     @Autowired
-    UserInformationDAO userInformationDAO;
+    private UserInformationDAO userInformationDAO;
 
     @Autowired
-    EmailService emailService;
+    private EmailService emailService;
 
     @Autowired
-    UserUtils userUtils;
+    private UserUtils userUtils;
 
     @Autowired
-    UserInfoMailLogsRepository userInfoMailLogsRepository;
+    private UserInfoMailLogsRepository userInfoMailLogsRepository;
 
     @Value("${assessment.test.for.senders.name:test}")
     private String sendersName;
