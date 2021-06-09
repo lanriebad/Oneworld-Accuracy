@@ -2,7 +2,6 @@ package com.test.assessment;
 
 import com.google.gson.Gson;
 import com.test.assessment.dto.UserRequest;
-import com.test.assessment.model.User;
 import com.test.assessment.utils.DefaultServiceResponse;
 import org.junit.Assert;
 
@@ -78,7 +77,6 @@ class AssessmentApplicationTests {
         URI uri = new URI(BASE_URL+"/users");
         HttpHeaders headers = new HttpHeaders();
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-        List<User> tasks = new ArrayList<>();
         Pageable pageable = PageRequest.of(1, 2);
         RequestEntity entity = new RequestEntity<>(pageable, headers, HttpMethod.GET, uri);
         ResponseEntity<String> response = restTemplate.exchange(entity, String.class);
