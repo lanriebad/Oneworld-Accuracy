@@ -1,23 +1,22 @@
 # Oneworld-Accuracy
 
-# Assessment Test
 This is the REST API backend with spring boot
 
-# Dependencies
+Dependencies
 ## Requirements
-*  Java 8 or later
-*  STS , IntelliJ , Eclipse
-*  Maven 4 and later
+* Java 8 or later
+* STS , IntelliJ , Eclipse
+* Maven 4 and later
 
 ## Prerequisites
 REST API using spring boot is as follows:
 
-*  Create a User
-*  Get the list of Users 
-*  Verify the User 
-*  Deactivate the User 
-*  Update the User 
-*  Notification for a validated and deactivated user (Using a Scheduler)
+* Create a User
+* Get the list of Users 
+* Verify the User 
+* Deactivate the User 
+* Update the User 
+* Notification for a validated and deactivated user (Using a Scheduler)
 
 
 ## Configuration
@@ -48,14 +47,14 @@ REST API using spring boot is as follows:
 
 
 
-#### Get Users
+## Get Users
 * This Gets the list of all users by pagination
 * A GET RequestMethod is used
 * using the url :  localhost:8085/api/users?limit=1
 
 
 
-#### Verify Users
+## Verify Users
 * Upon Successful signup or creation of user, a response is returned which contains the verification url
 * A GET RequestMethod is used 
 * using the url :  localhost:8085/api/verify?email=test@yahoo.com
@@ -65,7 +64,7 @@ REST API using spring boot is as follows:
 
 
 
-#### Deactivate Users
+## Deactivate Users
 * Users can be deactivated by their Id.
 * A DELETE RequestMethod is used 
 * using the url :  localhost:8085/api/user/{id}
@@ -75,7 +74,7 @@ REST API using spring boot is as follows:
 
 
 
-#### Update User
+## Update User
 * An user can update is data 
 * A PUT RequestMethod is used with the payload below
 * using the url :  localhost:8085/api/user/{id}
