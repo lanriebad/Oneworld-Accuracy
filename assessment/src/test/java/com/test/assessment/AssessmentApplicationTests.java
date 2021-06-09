@@ -40,7 +40,6 @@ import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.doReturn;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-//@SpringBootTest
 @RunWith(SpringJUnit4ClassRunner.class)
 class AssessmentApplicationTests {
 
@@ -48,14 +47,7 @@ class AssessmentApplicationTests {
 
    @Mock
  protected RestTemplate restTemplate = new RestTemplate();
-    @Mock
-    Logger log;
 
-    @InjectMocks
-    UserInformationServiceImpl userInformationService;
-
-    @InjectMocks
-    UserInformationController userInformationController;
 
     private UserRequest userRequest;
 
@@ -160,7 +152,7 @@ class AssessmentApplicationTests {
 
     @Test
     public void verifyUser() throws URISyntaxException {
-        URI uri = new URI(BASE_URL+"/verify?email=lol144441@lol.com";
+        URI uri = new URI(BASE_URL+"/verify?email=lol144441@lol.com");
         HttpHeaders headers = new HttpHeaders();
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
         RequestEntity entity = new RequestEntity<>(headers, HttpMethod.GET, uri);
