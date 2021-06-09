@@ -23,14 +23,14 @@ import java.util.*;
 public class UserInformationServiceImpl implements UserInformationService {
 
     @Autowired
-    UserInformationDAO userInformationDAO;
+    private UserInformationDAO userInformationDAO;
 
     @Autowired
-    UserInformationRepository userInformationRepository;
+    private UserInformationRepository userInformationRepository;
 
 
     @Autowired
-    RoleRepository roleRepository;
+    private RoleRepository roleRepository;
 
 
     @Override
